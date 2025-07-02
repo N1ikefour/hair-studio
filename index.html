@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuxeLocks | Премиум решения для волос</title>
+    <meta
+      name="description"
+      content="Премиум студия наращивания волос, предлагающая естественные и качественные преображения. Запишитесь на консультацию уже сегодня."
+    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <style>
+      /* Custom font classes */
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-montserrat {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Hero section background */
+      .hero-bg {
+        background: linear-gradient(
+            rgba(245, 238, 230, 0.9),
+            rgba(245, 238, 230, 0.9)
+          ),
+          url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* Animation classes */
+      .fade-in {
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+      }
+      .fade-in.visible {
+        opacity: 1;
+      }
+
+      .slide-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+      }
+      .slide-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Custom button hover effect */
+      .btn-hover:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .btn-hover {
+        transition: all 0.3s ease;
+      }
+
+      /* Section divider */
+      .section-divider {
+        height: 100px;
+        background: linear-gradient(
+            to bottom right,
+            transparent 49.5%,
+            #f5eee6 50%
+          ),
+          linear-gradient(to top right, transparent 49.5%, #f5eee6 50%);
+        background-size: 50% 100%;
+        background-repeat: no-repeat;
+        background-position: left, right;
+      }
+
+      /* Testimonial card hover */
+      .testimonial-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      .testimonial-card {
+        transition: all 0.3s ease;
+      }
+    </style>
+  </head>
+  <body class="font-montserrat bg-[#f5eee6] text-[#5a4a42]">
+    <!-- Навигация -->
+    <nav class="fixed w-full bg-white bg-opacity-90 shadow-sm z-50">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="text-2xl font-playfair font-semibold text-[#b38b6d]">
+            LuxeLocks
+          </div>
+          <!-- Кнопка мобильного меню -->
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-button"
+              class="text-[#5a4a42] focus:outline-none"
+            >
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+          <!-- Десктоп-меню -->
+          <div class="hidden md:flex space-x-8">
+            <a href="#about" class="hover:text-[#b38b6d] transition">О нас</a>
+            <a href="#services" class="hover:text-[#b38b6d] transition"
+              >Услуги</a
+            >
+            <a href="#pricing" class="hover:text-[#b38b6d] transition">Цены</a>
+            <a href="#portfolio" class="hover:text-[#b38b6d] transition"
+              >Портфолио</a
+            >
+            <a href="#reviews" class="hover:text-[#b38b6d] transition"
+              >Отзывы</a
+            >
+            <a href="#contact" class="hover:text-[#b38b6d] transition"
+              >Контакты</a
+            >
+          </div>
+        </div>
+        <!-- Мобильное меню -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-4 pb-4">
+          <a href="#about" class="block hover:text-[#b38b6d] transition"
+            >О нас</a
+          >
+          <a href="#services" class="block hover:text-[#b38b6d] transition"
+            >Услуги</a
+          >
+          <a href="#pricing" class="block hover:text-[#b38b6d] transition"
+            >Цены</a
+          >
+          <a href="#portfolio" class="block hover:text-[#b38b6d] transition"
+            >Портфолио</a
+          >
+          <a href="#reviews" class="block hover:text-[#b38b6d] transition"
+            >Отзывы</a
+          >
+          <a href="#contact" class="block hover:text-[#b38b6d] transition"
+            >Контакты</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Главная секция -->
+    <section class="hero-bg min-h-screen flex items-center pt-20">
+      <div class="container mx-auto px-6 py-20">
+        <div class="max-w-2xl mx-auto text-center fade-in">
+          <h1
+            class="text-4xl md:text-6xl font-playfair font-semibold mb-6 text-[#5a4a42]"
+          >
+            Преобразите свои волосы
+          </h1>
+          <p class="text-xl md:text-2xl mb-10 text-[#7a6a62]">
+            Премиальные наращивания для естественного и роскошного образа
+          </p>
+          <a
+            href="https://wa.me/1234567890?text=Здравствуйте%20LuxeLocks,%20хочу%20записаться%20на%20консультацию"
+            class="bg-[#b38b6d] hover:bg-[#9a7a5d] text-white px-8 py-4 rounded-full btn-hover inline-block"
+          >
+            Записаться на консультацию <i class="fab fa-whatsapp ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="about" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10 slide-up">
+            <h2 class="text-3xl md:text-4xl font-playfair font-semibold mb-6">
+              О студии LuxeLocks
+            </h2>
+            <p class="mb-4 text-lg">
+              Добро пожаловать в LuxeLocks — место, где мы создаём красивые и
+              естественные преображения волос. Наша студия основана с любовью к
+              женской красоте и стремлением помочь каждой обрести волосы мечты.
+            </p>
+            <p class="mb-4 text-lg">
+              Мы используем только лучшие натуральные волосы, тщательно
+              отобранные и полученные этичным способом. Каждое наращивание
+              подбирается индивидуально под ваш цвет и структуру волос.
+            </p>
+            <p class="text-lg">
+              Наши сертифицированные мастера имеют многолетний опыт и
+              гарантируют безупречный, комфортный и максимально естественный
+              результат.
+            </p>
+          </div>
+          <div class="md:w-1/2 slide-up">
+            <img
+              src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80"
+              alt="Мастер по наращиванию волос за работой"
+              class="rounded-lg shadow-lg w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Услуги -->
+    <div class="section-divider"></div>
+    <section id="services" class="py-20 bg-[#f5eee6]">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-3xl md:text-4xl font-playfair font-semibold mb-4">
+            Наши услуги
+          </h2>
+          <p class="max-w-2xl mx-auto text-lg">
+            Мы предлагаем различные премиальные методы наращивания для любого
+            типа и структуры волос
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-10">
+          <!-- Услуга 1 -->
+          <div class="bg-white p-8 rounded-lg shadow-md text-center slide-up">
+            <div class="text-4xl text-[#b38b6d] mb-4">
+              <i class="fas fa-gem"></i>
+            </div>
+            <h3 class="text-xl font-playfair font-semibold mb-3">
+              Ленточное наращивание
+            </h3>
+            <p class="mb-4">
+              Ультратонкие и лёгкие ленты, которые незаметны на голове. Идеально
+              для увеличения объёма и длины без вреда для волос.
+            </p>
+            <p class="font-semibold text-[#b38b6d]">Держится 6-8 недель</p>
+          </div>
+
+          <!-- Услуга 2 -->
+          <div class="bg-white p-8 rounded-lg shadow-md text-center slide-up">
+            <div class="text-4xl text-[#b38b6d] mb-4">
+              <i class="fas fa-magic"></i>
+            </div>
+            <h3 class="text-xl font-playfair font-semibold mb-3">
+              Микро-линк наращивание
+            </h3>
+            <p class="mb-4">
+              Маленькие медные бусины, которые крепят отдельные пряди. Без клея
+              и нагрева — максимально бережно для ваших волос.
+            </p>
+            <p class="font-semibold text-[#b38b6d]">Держится 3-4 месяца</p>
+          </div>
+
+          <!-- Услуга 3 -->
+          <div class="bg-white p-8 rounded-lg shadow-md text-center slide-up">
+            <div class="text-4xl text-[#b38b6d] mb-4">
+              <i class="fas fa-crown"></i>
+            </div>
+            <h3 class="text-xl font-playfair font-semibold mb-3">
+              Трессовое наращивание
+            </h3>
+            <p class="mb-4">
+              Классический способ: волосы вплетаются в косички и пришиваются.
+              Идеально для густых, кудрявых и жёстких волос.
+            </p>
+            <p class="font-semibold text-[#b38b6d]">Держится 6-8 недель</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Цены -->
+    <div class="section-divider"></div>
+    <section id="pricing" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-3xl md:text-4xl font-playfair font-semibold mb-4">
+            Цены
+          </h2>
+          <p class="max-w-2xl mx-auto text-lg">
+            Прозрачные цены на все наши премиальные услуги
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <!-- Карта цены 1 -->
+          <div
+            class="border border-[#e8d9c8] rounded-lg p-8 text-center slide-up"
+          >
+            <h3 class="text-xl font-playfair font-semibold mb-4">
+              Ленточное наращивание
+            </h3>
+            <div class="text-4xl font-playfair text-[#b38b6d] mb-6">$250+</div>
+            <ul class="space-y-3 mb-8 text-left">
+              <li class="flex items-start">
+                <i class="fas fa-check text-[#b38b6d] mt-1 mr-2"></i>
+                <span>Полное наращивание</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[#b38b6d] mt-1 mr-2"></i>
+                <span>Включена консультация</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[#b38b6d] mt-1 mr-2"></i>
+                <span>Подбор цвета</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[#b38b6d] mt-1 mr-2"></i>
+                <span>Сеанс 60-90 минут</span>
+              </li>
+            </ul>
+            <a
+              href="https://wa.me/1234567890?text=Интересует%20ленточное%20наращивание"
+              class="bg-[#b38b6d] hover:bg-[#9a7a5d] text-white px-6 py-3 rounded-full btn-hover inline-block"
+            >
+              Записаться
+            </a>
+          </div>
+
+          <!-- Карта цены 2 -->
+          <div
+            class="border border-[#e8d9c8] rounded-lg p-8 text-center slide-up bg-[#f9f5f0]"
+          >
+            <div
+              class="absolute top-0 right-0 bg-[#b38b6d] text-white px-4 py-1 rounded-bl-lg rounded-tr-lg"
+            >
+              Популярно
+            </div>
+            <h3 class="text-xl font-playfair font-semibold mb-4">
+              Микро-линк наращивание
+            </h3>
+            <div class="text-4xl font-playfair text-[#b38b6d] mb-6">$350+</div>
+            <ul class="space-y-3 mb-8 text-left">
+              <li class="flex items-start">
+                <i class="fas fa-check text-[#b38b6d] mt-1 mr-2"></i>
+                <span>Полное наращивание</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[#b38b6d] mt-1 mr-2"></i>
+                <span>Включена консультация</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[#b38b6d] mt-1 mr-2"></i>
+                <span>Подбор цвета</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[#b38b6d] mt-1 mr-2"></i>
+                <span>Сеанс 90-120 минут</span>
+              </li>
+            </ul>
+            <a
+              href="https://wa.me/1234567890?text=Интересует%20микро-линк%20наращивание"
+              class="bg-[#b38b6d] hover:bg-[#9a7a5d] text-white px-6 py-3 rounded-full btn-hover inline-block"
+            >
+              Записаться
+            </a>
+          </div>
+
+          <!-- Карта цены 3 -->
+          <div
+            class="border border-[#e8d9c8] rounded-lg p-8 text-center slide-up"
+          >
+            <h3 class="text-xl font-playfair font-semibold mb-4">
+              Трессовое наращивание
+            </h3>
+            <div class="text-4xl font-playfair text-[#b38b6d] mb-6">$300+</div>
+            <ul class="space-y-3 mb-8 text-left">
+              <li class="flex items-start">
+                <i class="fas fa-check text-[#b38b6d] mt-1 mr-2"></i>
+                <span>Полное наращивание</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[#b38b6d] mt-1 mr-2"></i>
+                <span>Включена консультация</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[#b38b6d] mt-1 mr-2"></i>
+                <span>Подбор цвета</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-[#b38b6d] mt-1 mr-2"></i>
+                <span>Сеанс 2-3 часа</span>
+              </li>
+            </ul>
+            <a
+              href="https://wa.me/1234567890?text=Интересует%20трессовое%20наращивание"
+              class="bg-[#b38b6d] hover:bg-[#9a7a5d] text-white px-6 py-3 rounded-full btn-hover inline-block"
+            >
+              Записаться
+            </a>
+          </div>
+        </div>
+
+        <div class="text-center mt-12 fade-in">
+          <p class="text-lg mb-6">
+            *Стоимость зависит от длины, качества и объёма волос. Включена
+            бесплатная консультация для подбора идеального варианта.
+          </p>
+          <a
+            href="https://wa.me/1234567890?text=Хотела%20бы%20узнать%20подробнее%20о%20ценах"
+            class="border border-[#b38b6d] text-[#b38b6d] hover:bg-[#f0e6db] px-6 py-3 rounded-full btn-hover inline-block"
+          >
+            Получить индивидуальный расчёт
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Портфолио -->
+    <div class="section-divider"></div>
+    <section id="portfolio" class="py-20 bg-[#f5eee6]">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-3xl md:text-4xl font-playfair font-semibold mb-4">
+            Наши работы
+          </h2>
+          <p class="max-w-2xl mx-auto text-lg">
+            Посмотрите на преображения, которые мы создали для наших клиентов
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Портфолио 1 -->
+          <div class="overflow-hidden rounded-lg shadow-md slide-up">
+            <img
+              src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+              alt="До и после наращивания волос"
+              class="w-full h-80 object-cover transition-transform duration-500 hover:scale-105"
+            />
+            <div class="p-6 bg-white">
+              <h3 class="font-playfair font-semibold text-lg mb-2">
+                Ленточное наращивание балаяж
+              </h3>
+              <p class="text-sm">Ленточный метод, длина 50 см</p>
+            </div>
+          </div>
+
+          <!-- Портфолио 2 -->
+          <div class="overflow-hidden rounded-lg shadow-md slide-up">
+            <img
+              src="https://images.unsplash.com/photo-1559599101-f09722fb4948?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+              alt="До и после наращивания волос"
+              class="w-full h-80 object-cover transition-transform duration-500 hover:scale-105"
+            />
+            <div class="p-6 bg-white">
+              <h3 class="font-playfair font-semibold text-lg mb-2">
+                Объём для брюнетки
+              </h3>
+              <p class="text-sm">Микро-линк, длина 45 см</p>
+            </div>
+          </div>
+
+          <!-- Портфолио 3 -->
+          <div class="overflow-hidden rounded-lg shadow-md slide-up">
+            <img
+              src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+              alt="До и после наращивания волос"
+              class="w-full h-80 object-cover transition-transform duration-500 hover:scale-105"
+            />
+            <div class="p-6 bg-white">
+              <h3 class="font-playfair font-semibold text-lg mb-2">
+                Кудрявое трессовое наращивание
+              </h3>
+              <p class="text-sm">Трессовый метод, длина 55 см</p>
+            </div>
+          </div>
+
+          <!-- Портфолио 4 -->
+          <div class="overflow-hidden rounded-lg shadow-md slide-up">
+            <img
+              src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1580&q=80"
+              alt="До и после наращивания волос"
+              class="w-full h-80 object-cover transition-transform duration-500 hover:scale-105"
+            />
+            <div class="p-6 bg-white">
+              <h3 class="font-playfair font-semibold text-lg mb-2">
+                Омбре-преображение
+              </h3>
+              <p class="text-sm">Ленточный метод, длина 60 см</p>
+            </div>
+          </div>
+
+          <!-- Портфолио 5 -->
+          <div class="overflow-hidden rounded-lg shadow-md slide-up">
+            <img
+              src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+              alt="До и после наращивания волос"
+              class="w-full h-80 object-cover transition-transform duration-500 hover:scale-105"
+            />
+            <div class="p-6 bg-white">
+              <h3 class="font-playfair font-semibold text-lg mb-2">
+                Натуральные чёрные волосы
+              </h3>
+              <p class="text-sm">Микро-линк, длина 50 см</p>
+            </div>
+          </div>
+
+          <!-- Портфолио 6 -->
+          <div class="overflow-hidden rounded-lg shadow-md slide-up">
+            <img
+              src="https://images.unsplash.com/photo-1559599238-308793637427?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1580&q=80"
+              alt="До и после наращивания волос"
+              class="w-full h-80 object-cover transition-transform duration-500 hover:scale-105"
+            />
+            <div class="p-6 bg-white">
+              <h3 class="font-playfair font-semibold text-lg mb-2">
+                Пляжные волны
+              </h3>
+              <p class="text-sm">Ленточный метод, длина 45 см</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12 fade-in">
+          <a
+            href="https://wa.me/1234567890?text=Хочу%20увидеть%20больше%20примеров%20работ"
+            class="border border-[#b38b6d] text-[#b38b6d] hover:bg-[#f0e6db] px-6 py-3 rounded-full btn-hover inline-block"
+          >
+            Смотреть больше преображений
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Отзывы -->
+    <div class="section-divider"></div>
+    <section id="reviews" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-3xl md:text-4xl font-playfair font-semibold mb-4">
+            Отзывы клиентов
+          </h2>
+          <p class="max-w-2xl mx-auto text-lg">
+            Узнайте, что говорят наши клиенты о LuxeLocks
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Отзыв 1 -->
+          <div class="bg-[#f9f5f0] p-8 rounded-lg testimonial-card slide-up">
+            <div class="flex mb-4">
+              <i class="fas fa-star text-[#b38b6d]"></i>
+              <i class="fas fa-star text-[#b38b6d]"></i>
+              <i class="fas fa-star text-[#b38b6d]"></i>
+              <i class="fas fa-star text-[#b38b6d]"></i>
+              <i class="fas fa-star text-[#b38b6d]"></i>
+            </div>
+            <p class="mb-6 italic">
+              «Я пробовала наращивание в разных местах, но LuxeLocks — лучшие!
+              Ленты настолько удобные, что я их не ощущаю, а подбор цвета был
+              идеальным. Стоит каждой потраченной копейки!»
+            </p>
+            <div class="flex items-center">
+              <img
+                src="https://randomuser.me/api/portraits/women/43.jpg"
+                alt="Сара Дж."
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-semibold">Сара Дж.</h4>
+                <p class="text-sm text-gray-600">Ленточное наращивание</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Отзыв 2 -->
+          <div class="bg-[#f9f5f0] p-8 rounded-lg testimonial-card slide-up">
+            <div class="flex mb-4">
+              <i class="fas fa-star text-[#b38b6d]"></i>
+              <i class="fas fa-star text-[#b38b6d]"></i>
+              <i class="fas fa-star text-[#b38b6d]"></i>
+              <i class="fas fa-star text-[#b38b6d]"></i>
+              <i class="fas fa-star text-[#b38b6d]"></i>
+            </div>
+            <p class="mb-6 italic">
+              «Микро-линк наращивание изменило мою жизнь! У меня тонкие волосы,
+              и я боялась повредить их, но спустя 4 месяца мои волосы стали
+              только здоровее. Мастера — настоящие профессионалы!»
+            </p>
+            <div class="flex items-center">
+              <img
+                src="https://randomuser.me/api/portraits/women/65.jpg"
+                alt="Эмили Р."
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-semibold">Эмили Р.</h4>
+                <p class="text-sm text-gray-600">Микро-линк наращивание</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Отзыв 3 -->
+          <div class="bg-[#f9f5f0] p-8 rounded-lg testimonial-card slide-up">
+            <div class="flex mb-4">
+              <i class="fas fa-star text-[#b38b6d]"></i>
+              <i class="fas fa-star text-[#b38b6d]"></i>
+              <i class="fas fa-star text-[#b38b6d]"></i>
+              <i class="fas fa-star text-[#b38b6d]"></i>
+              <i class="fas fa-star text-[#b38b6d]"></i>
+            </div>
+            <p class="mb-6 italic">
+              «Мне, как девушке с кудрявыми волосами, было сложно найти салон,
+              который понимает мою структуру. В LuxeLocks сделали индивидуальное
+              трессовое наращивание — выглядит и ощущается очень натурально.
+              Каждый день получаю комплименты!»
+            </p>
+            <div class="flex items-center">
+              <img
+                src="https://randomuser.me/api/portraits/women/33.jpg"
+                alt="Даниэлла К."
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-semibold">Даниэлла К.</h4>
+                <p class="text-sm text-gray-600">Трессовое наращивание</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12 fade-in">
+          <a
+            href="https://wa.me/1234567890?text=Хочу%20записаться%20на%20преображение"
+            class="bg-[#b38b6d] hover:bg-[#9a7a5d] text-white px-8 py-4 rounded-full btn-hover inline-block"
+          >
+            Записаться на преображение <i class="fab fa-whatsapp ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <div class="section-divider"></div>
+    <section id="contact" class="py-20 bg-[#f5eee6]">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-3xl md:text-4xl font-playfair font-semibold mb-4">
+            Приходите к нам
+          </h2>
+          <p class="max-w-2xl mx-auto text-lg">
+            Запишитесь на консультацию в нашей студии
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <!-- Контактная информация -->
+          <div class="bg-white p-8 rounded-lg shadow-md slide-up">
+            <h3 class="text-2xl font-playfair font-semibold mb-6">
+              Контактная информация
+            </h3>
+
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="text-2xl text-[#b38b6d] mr-4">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Адрес студии</h4>
+                  <p>123 Beauty Lane, офис 200<br />Нью-Йорк, NY 10001</p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="text-2xl text-[#b38b6d] mr-4">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Телефон</h4>
+                  <p>(212) 555-1234</p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="text-2xl text-[#b38b6d] mr-4">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Email</h4>
+                  <p>hello@luxelocks.com</p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="text-2xl text-[#b38b6d] mr-4">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Время работы</h4>
+                  <p>
+                    Вторник - Суббота: 10:00 - 19:00<br />Воскресенье -
+                    Понедельник: выходной
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <h4 class="font-semibold mb-4">Мы в соцсетях</h4>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="text-2xl text-[#b38b6d] hover:text-[#9a7a5d]"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="#"
+                  class="text-2xl text-[#b38b6d] hover:text-[#9a7a5d]"
+                >
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a
+                  href="#"
+                  class="text-2xl text-[#b38b6d] hover:text-[#9a7a5d]"
+                >
+                  <i class="fab fa-pinterest"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Карта -->
+          <div class="slide-up">
+            <div class="h-full rounded-lg overflow-hidden shadow-md">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215256018044!2d-73.9878449245372!3d40.74844097138938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1689877427633!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="min-h-[400px]"
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="bg-[#5a4a42] text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <div
+              class="text-2xl font-playfair font-semibold text-[#b38b6d] mb-2"
+            >
+              LuxeLocks
+            </div>
+            <p class="text-sm">Премиум студия наращивания волос</p>
+          </div>
+
+          <div
+            class="flex flex-col md:flex-row md:space-x-12 space-y-4 md:space-y-0 text-center md:text-left"
+          >
+            <div>
+              <h4 class="font-semibold mb-2">Быстрые ссылки</h4>
+              <ul class="space-y-1">
+                <li>
+                  <a href="#about" class="hover:text-[#b38b6d] transition"
+                    >О нас</a
+                  >
+                </li>
+                <li>
+                  <a href="#services" class="hover:text-[#b38b6d] transition"
+                    >Услуги</a
+                  >
+                </li>
+                <li>
+                  <a href="#pricing" class="hover:text-[#b38b6d] transition"
+                    >Цены</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">Ещё</h4>
+              <ul class="space-y-1">
+                <li>
+                  <a href="#portfolio" class="hover:text-[#b38b6d] transition"
+                    >Портфолио</a
+                  >
+                </li>
+                <li>
+                  <a href="#reviews" class="hover:text-[#b38b6d] transition"
+                    >Отзывы</a
+                  >
+                </li>
+                <li>
+                  <a href="#contact" class="hover:text-[#b38b6d] transition"
+                    >Контакты</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">Правовая информация</h4>
+              <ul class="space-y-1">
+                <li>
+                  <a href="#" class="hover:text-[#b38b6d] transition"
+                    >Политика конфиденциальности</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-[#b38b6d] transition"
+                    >Условия использования</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-[#7a6a62] mt-8 pt-8 text-center text-sm">
+          <p>&copy; 2023 LuxeLocks. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Плавающая кнопка WhatsApp -->
+    <div class="fixed bottom-6 right-6 z-50">
+      <a
+        href="https://wa.me/1234567890?text=Здравствуйте%20LuxeLocks,%20хочу%20записаться%20на%20консультацию"
+        class="bg-[#25D366] hover:bg-[#128C7E] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg btn-hover"
+      >
+        <i class="fab fa-whatsapp text-3xl"></i>
+      </a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("mobile-menu");
+          menu.classList.toggle("hidden");
+        });
+
+      // Scroll animations
+      function checkVisibility() {
+        const elements = document.querySelectorAll(".fade-in, .slide-up");
+
+        elements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+
+          if (elementTop < windowHeight - 100) {
+            element.classList.add("visible");
+          }
+        });
+      }
+
+      // Check visibility on load and scroll
+      window.addEventListener("load", checkVisibility);
+      window.addEventListener("scroll", checkVisibility);
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Close mobile menu if open
+          const mobileMenu = document.getElementById("mobile-menu");
+          if (!mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.add("hidden");
+          }
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
